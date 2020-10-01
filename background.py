@@ -1,3 +1,4 @@
+#feel the magic
 import cv2
 # THIS IS MY WEBCAM
 cap = cv2.VideoCapture(0)
@@ -11,6 +12,5 @@ while cap.isOpened():
             # save the image
             cv2.imwrite('image.jpg', back)
             break
-
 cap.release()
 cv2.destroyAllWindows()
