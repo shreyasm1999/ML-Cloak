@@ -3,6 +3,7 @@ import numpy as np
 
 cap = cv2.VideoCapture(0)
 back = cv2.imread('./image.jpg')
+kernel = np.ones((5,5), np.uint8)
 
 while cap.isOpened():
     # take each frame
@@ -37,6 +38,14 @@ while cap.isOpened():
         # cv2.imshow("mask", part2)
 
         cv2.imshow("cloak", part1 + part2)
+        img_erosion = cv2.erode(back, kernel, iterations=1) 
+        img_dilation = cv2.dilate(back, kernel, iterations=1)
+        
+        
+        cv2.imshow('Input', back) 
+        
+        cv2.imshow('Dilation', img_dilation) 
+        cv2.imshow('Erosion', img_erosion)
 
         if cv2.waitKey(5) == ord('q'):
             break
